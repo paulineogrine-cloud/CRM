@@ -1,0 +1,15 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Contacts favoris</h2>
+  <ul class="list-group">
+    <li *ngFor="let c of contacts" class="list-group-item">
+      <div class="fw-bold">{{ c.firstname }} {{ c.lastname }}</div>
+      <ul class="mb-2">
+        <li><i class="bi bi-envelope"></i> {{ c.email }}</li>
+        <li><i class="bi bi-telephone"></i> {{ c.phone }}</li>
+      </ul>
+    </li>
+  </ul>
+  <div *ngIf="contacts.length === 0" class="alert alert-info mt-3">
+    Aucun favori pour le moment
+  </div>
+</div>

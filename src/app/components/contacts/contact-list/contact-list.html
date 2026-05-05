@@ -1,0 +1,48 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Liste des contacts</h2>
+  <div class="mb-3">
+    <input 
+      type="text" 
+      class="form-control"
+      placeholder="Rechercher par prénom ou nom (ex: a, jean...)"
+      [(ngModel)]="searchQuery"
+      (input)="onSearchChange()"
+    />
+  </div>
+  <div class="mb-3">
+    <span class="badge bg-primary">{{count}} contact(s)</span>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-lg-4 mb-4" *ngFor="let c of filteredContacts">
+      <div class="card h-100" [ngClass]="{'border-warning': c.favorite}">
+        <div class="card-body">
+          <h5 class="card-title">{{ c.firstname }} {{ c.lastname }}</h5>
+          <p class="card-text"><strong>Email :</strong> {{ c.email }}</p>
+          <p class="card-text"><strong>Téléphone :</strong> {{ c.jobTitle }}</p>
+          <p class="card-text"><strong>Entreprise :</strong> {{ c.company }}</p>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+          <button class="btn btn-outline-warning btn-sm" (click)="toggleFav(c.id)">
+            {{ c.favorite ? '🤍 Retirer des Favoris' : '💖 Ajouter aux Favori' }}
+          </button>
+          <button class="btn btn-outline-danger btn-sm" (click)="delete(c.id)">
+            Supprimer
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    </button>
+
+    <a [routerLink]="['/contacts', c.id]">
+        Voir le détail
+    </a>
+    
+    </div>
+    </div>
+
+    <div *ngIf="filteredContacts.length === 0" class="no-results">
+      <p>Aucun contact ne correspond à votre recherche "{{searchQuery}}"</p>
+    </div>
+    </div>

@@ -1,0 +1,11 @@
+.contact-list {
+  padding: 0;
+}
+
+.contact-item {
+  list-style: none;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #eecfa1;
+  border-radius: 8px;
+}
