@@ -1,13 +1,17 @@
-<h1> {{title}}</h1>
-
-<nav>
-    <a routerLink="/">Acceuil</a>
-    <a routerLink="/contacts">Liste contacts</a>
-    <a routerLink="/favorites">Contact favori</a>
-    <a routerLink="/form">Ajouter un contact </a>
-
+<nav class="navbar">
+  <div class="container-fluid px-4">
+    <div class="d-flex align-items-center w-100">
+      <h1 class="mb-0 text-white me-auto">📞 {{title}}</h1>
+      <div class="nav-links">
+        <a routerLink="/" class="nav-link">🏠 Accueil</a>
+        <a routerLink="/contacts" class="nav-link">📋 Liste des contacts</a>
+        <a routerLink="/favorites" class="nav-link">⭐ Favoris</a>
+        <a routerLink="/form" class="nav-link">➕ Ajouter</a>
+      </div>
+    </div>
+  </div>
 </nav>
 
-<hr />
-<!-- //affichage dynanmique -->
-<router-outlet></router-outlet>
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>

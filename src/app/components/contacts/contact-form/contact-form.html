@@ -1,58 +1,66 @@
-<div class="container mt-4">
-    <h2 class="mb-4">Ajouter des contacts</h2>
-    <form [formGroup]="contactForm" (ngSubmit)="OnSubmit()">
+<div class="container">
+  <form [formGroup]="contactForm" (ngSubmit)="OnSubmit()">
+    <h2 class="text-center mb-4">✨ Ajouter un nouveau contact</h2>
+    
+    <div class="mb-3">
+      <label class="form-label">Prénom</label>
+      <input type="text" class="form-control" formControlName="firstname" />
+      <div *ngIf="contactForm.get('firstname')?.invalid && contactForm.get('firstname')?.touched" class="alert alert-danger mt-2">
+        ⚠️ Prénom invalide (minimum 3 caractères)
+      </div>
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label">Nom</label>
+      <input type="text" class="form-control" formControlName="lastname" />
+      <div *ngIf="contactForm.get('lastname')?.invalid && contactForm.get('lastname')?.touched" class="alert alert-danger mt-2">
+        ⚠️ Nom invalide (minimum 3 caractères)
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-6">
         <div class="mb-3">
-            <label class="form-label">Prénom :</label>
-            <input type="text" class="form-control" formControlName="firstname" />
-            <div *ngIf="contactForm.get('firstname')?.invalid && contactForm.get('firstname')?.touched" class="alert alert-danger p-1 mt-2">
-                Prénom invalide (min 3 cars)
-            </div>
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" formControlName="email" />
+          <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="alert alert-danger mt-2">
+            ⚠️ Email requis
+          </div>
         </div>
+      </div>
+      <div class="col-md-6">
         <div class="mb-3">
-            <label class="form-label">Nom :</label>
-            <input type="text" class="form-control" formControlName="lastname" />
-            <div *ngIf="contactForm.get('lastname')?.invalid && contactForm.get('lastname')?.touched" class="alert alert-danger p-1 mt-2">
-                Nom invalide (min 3 cars)
-            </div>
+          <label class="form-label">Téléphone</label>
+          <input type="text" class="form-control" formControlName="phone" />
+          <div *ngIf="contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched" class="alert alert-danger mt-2">
+            ⚠️ Téléphone requis
+          </div>
         </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-6">
         <div class="mb-3">
-            <label class="form-label">Email :</label>
-            <input type="email" class="form-control" formControlName="email" />
-            <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="alert alert-danger p-1 mt-2">
-                Email ne peut pas être vide
-            </div>
+          <label class="form-label">Entreprise</label>
+          <input type="text" class="form-control" formControlName="company" />
         </div>
+      </div>
+      <div class="col-md-6">
         <div class="mb-3">
-            <label class="form-label">Téléphone :</label>
-            <input type="text" class="form-control" formControlName="phone" />
-            <div *ngIf="contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched" class="alert alert-danger p-1 mt-2">
-                Numéro ne peut pas être vide
-            </div>
+          <label class="form-label">Titre</label>
+          <input type="text" class="form-control" formControlName="jobTitle" />
         </div>
-        <div class="mb-3">
-            <label class="form-label">Entreprise :</label>
-            <input type="text" class="form-control" formControlName="company" />
-        </div>
-        <button type="submit" class="btn btn-success">Ajouter</button>
+      </div>
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label">Notes</label>
+      <input type="text" class="form-control" formControlName="notes" />
+    </div>
+    
+    <button type="submit" class="btn btn-success" [disabled]="contactForm.invalid">
+      ➕ Ajouter le contact
+        </button>
     </form>
 </div>
-
-<div class="form">
-    <label>Title :</label>
-    <input type="text" formControlName="jobTitle" />
-</div>
-
-<div class="form">
-    <label>Notes :</label>
-    <input type="text" formControlName="notes" />
-</div>
-
-<br /><br />
-    
-    <!-- désactive le bouton si la condition est vraie -->
-    <button type="submit" [disabled]="contactForm.invalid">
-    Ajouter un contact
-    </button>
-
-
-</form>

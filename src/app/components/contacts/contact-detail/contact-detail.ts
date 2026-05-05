@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Contact, Contacts } from '../../../services/contacts';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-contact-detail',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './contact-detail.html',
   styleUrl: './contact-detail.css',
 })

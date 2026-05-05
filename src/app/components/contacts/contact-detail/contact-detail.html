@@ -1,13 +1,45 @@
-<div *ngIf="contact as c" class="container mt-4">
-  <div class="card">
-    <div class="card-body">
-      <h2 class="card-title">{{ c.firstname }} {{ c.lastname }}</h2>
-      <div *ngIf="c.notes; else noNotes">
-        <h5 class="card-subtitle mb-2 text-muted">Notes</h5>
-        <p class="card-text">{{ c.notes }}</p>
+<div *ngIf="contact as c" class="container">
+  <div class="back-link mb-4">
+    <a routerLink="/contacts" class="btn btn-outline-secondary btn-sm">
+      ← Retour à la liste
+    </a>
+  </div>
+  
+  <div class="card detail-card">
+    <div class="card-body p-5">
+      <h2 class="card-title mb-4">👤 {{ c.firstname }} {{ c.lastname }}</h2>
+      
+      <div class="detail-grid">
+        <div class="detail-item">
+          <h6 class="detail-label">📧 Email</h6>
+          <p class="detail-value">{{ c.email }}</p>
+        </div>
+        
+        <div class="detail-item">
+          <h6 class="detail-label">📱 Téléphone</h6>
+          <p class="detail-value">{{ c.phone }}</p>
+        </div>
+        
+        <div class="detail-item">
+          <h6 class="detail-label">💼 Entreprise</h6>
+          <p class="detail-value">{{ c.company }}</p>
+        </div>
+        
+        <div class="detail-item">
+          <h6 class="detail-label">🎯 Titre</h6>
+          <p class="detail-value">{{ c.jobTitle }}</p>
+        </div>
       </div>
+      
+      <div class="notes-section" *ngIf="c.notes; else noNotes">
+        <h5 class="notes-title">📝 Notes</h5>
+        <p class="notes-text">{{ c.notes }}</p>
+      </div>
+      
       <ng-template #noNotes>
-        <div class="alert alert-info">Aucun détail supplémentaire</div>
+        <div class="alert alert-info border-0">
+          ℹ️ Aucune note ajoutée
+        </div>
       </ng-template>
     </div>
   </div>

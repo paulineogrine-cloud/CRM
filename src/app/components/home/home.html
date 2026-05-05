@@ -1,8 +1,32 @@
-<div class="container mt-5">
-	<div class="p-5 mb-4 bg-light rounded-3">
-		<div class="container-fluid py-5">
-			<h1 class="display-5 fw-bold">Bienvenue sur votre CRM !</h1>
-			<p class="col-md-8 fs-4">Gérez vos contacts, favoris et plus encore avec style grâce à Bootstrap.</p>
-		</div>
-	</div>
+<div class="hero-section">
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="hero-title">📞 Bienvenue sur votre CRM</h1>
+      <p class="hero-subtitle">Organisez vos contacts, gérez vos favoris et restez connecté avec style</p>
+      
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span class="stat-icon">📋</span>
+          <span class="stat-label">Contacts</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">⭐</span>
+          <span class="stat-label">Favoris</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">➕</span>
+          <span class="stat-label">Ajouter</span>
+        </div>
+      </div>
+      
+      <div class="hero-actions">
+        <a routerLink="/contacts" class="btn btn-primary btn-lg">
+          Voir tous mes contacts
+        </a>
+        <a routerLink="/form" class="btn btn-outline-light btn-lg">
+          Ajouter un nouveau contact
+        </a>
+      </div>
+    </div>
+  </div>
 </div>

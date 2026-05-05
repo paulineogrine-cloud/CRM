@@ -1,15 +1,30 @@
-<div class="container mt-4">
-  <h2 class="mb-4">Contacts favoris</h2>
-  <ul class="list-group">
-    <li *ngFor="let c of contacts" class="list-group-item">
-      <div class="fw-bold">{{ c.firstname }} {{ c.lastname }}</div>
-      <ul class="mb-2">
-        <li><i class="bi bi-envelope"></i> {{ c.email }}</li>
-        <li><i class="bi bi-telephone"></i> {{ c.phone }}</li>
-      </ul>
-    </li>
-  </ul>
-  <div *ngIf="contacts.length === 0" class="alert alert-info mt-3">
-    Aucun favori pour le moment
+<div class="container">
+  <div class="header mb-5">
+    <h2>⭐ Mes Contacts Favoris</h2>
+    <p class="subtitle">Vous avez <strong>{{ contacts.length }}</strong> contact<span *ngIf="contacts.length !== 1">s</span> favori<span *ngIf="contacts.length !== 1">s</span></p>
+  </div>
+  
+  <div *ngIf="contacts.length > 0" class="favorites-grid">
+    <div *ngFor="let c of contacts" class="card favorite-card">
+      <div class="card-body">
+        <div class="favorite-icon">💖</div>
+        <h5 class="card-title">{{ c.firstname }} {{ c.lastname }}</h5>
+        <div class="favorite-info">
+          <p><strong>📧 Email :</strong><br /> {{ c.email }}</p>
+          <p><strong>📱 Téléphone :</strong><br /> {{ c.phone }}</p>
+        </div>
+        <a [routerLink]="['/contacts', c.id]" class="btn btn-outline-primary btn-sm w-100 mt-3">
+          Voir les détails
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="contacts.length === 0" class="empty-state">
+    <div class="empty-icon">📭</div>
+    <p class="empty-text">Vous n'avez pas encore de contact favori</p>
+    <a routerLink="/contacts" class="btn btn-primary">
+      Ajouter un contact favori
+    </a>
   </div>
 </div>
